@@ -1,0 +1,45 @@
+div{
+    margin-bottom: 10px;
+}
+
+#handsList{
+    display: flex;
+}
+
+#handsList li{
+    list-style: none;
+}
+
+#handsList li img{
+    width: 30%;
+    border: 1px solid #aaaaaa;
+}
+
+#closeButton{
+    border: 1px solid #aaaaaa;
+    padding: 5px 10px;
+}
+
+#logs{
+    border: 1px solid #aaaaaa;
+}
+
+#logTitle{
+    border-bottom: 1px solid #aaaaaa;
+}
+
+#status-wrapper{
+    border: 1px solid #aaaaaa;
+}
+
+#statusTitle{
+    border-bottom: 1px solid #aaaaaa;
+}
+
+#previous-result{
+    border: 1px solid #aaaaaa;
+}
+
+#prevResultTitle{
+    border-bottom: 1px solid #aaaaaa;
+}

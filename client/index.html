@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <title>遠隔じゃんけん</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <form name = "connectionForm">
+        <input type = "text" id = "name" placeholder="name + yourBirthday">
+        <input type = "Button" id = "nameSubmitBtn" onclick = "createConnection();" value = "open connection">
+    </form>
+
+    <ul id = "handsList">
+        <li><img src="./img/rock.png" onclick = "decideHand('rock')"></li>
+        <li><img src="./img/scissor.png" onclick = "decideHand('scissor')"></li>
+        <li><img src="./img/paper.png" onclick = "decideHand('paper')"></li>
+    </ul>
+
+    <form name = "closeForm">
+        <input type = "Button" id = "closeBtn" onclick = "closeConnection();" value = "disconnect">
+    </form>
+
+    <div id = "status-wrapper">
+        <p id = "statusTitle">current progress</p>
+        <div id = "status">
+        </div>
+    </div>
+
+    <div id = "previous-result">
+        <p id = "prevResultTitle">previous result</p>
+        <div id = prevStats>
+
+        </div>
+    </div>
+
+    <div id = "logs">
+        <p id = logTitle>log</p>
+        <p class = "log"> </p>
+        <p class = "log"> </p>
+        <p class = "log"> </p>
+        <p class = "log"> </p>
+        <p class = "log"> </p>
+        <p class = "log"> </p>
+        <p class = "log"> </p>
+        <p class = "log"> </p>
+        <p class = "log"> </p>
+    </div>
+
+
+    <script type="text/javascript" src="./js/client.js"></script>
+</body>
