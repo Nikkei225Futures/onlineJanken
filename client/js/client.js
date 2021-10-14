@@ -1,12 +1,22 @@
 let svr = new WebSocket('ws://localhost:8888');
+let playerNames = [];
+
 
 function createConnection(){
+    //detect name duplication
+    let name = document.getElementById('name').value;
+    for(let i = 0; i < playerNames.length; i++){
+        if(name == playerNames[i]){
+            addLog("name should be unique");
+            return false;
+        }
+    }
+
     //delete submitButton to avoid duplication
     let submitButton = document.getElementById('nameSubmitBtn');
     submitButton.setAttribute("style", "display: none;");
 
     //send request of register
-    let name = document.getElementById('name').value;
     let connectionReq = 
     {
         "jsonrpc": "2.0",
@@ -63,6 +73,10 @@ svr.addEventListener('message', msg => {
         showResult(msg.names, msg.hands, msg.settle, msg.winners);
         console.log("result:");
         console.log(msg);
+    }else if(msg.method == "namesInfo"){
+        playerNames = msg.names;
+        console.log("namesInfo");
+        console.log(playerNames);
     }
 });
 

@@ -11,6 +11,7 @@ let person = [];
 
 ws.on('connection', socket => {
     console.log('connected');
+    bcNameInfo();
 
     socket.on('message', msg => {
         msg = JSON.parse(msg);
@@ -249,4 +250,33 @@ function initHands(){
         person[i].hand = "none";
     }
     bcCurrentStat();
+}
+
+function bcNameInfo(){
+    names = getAllNames();
+    let msg =
+    {
+        "jsonrpc": "2.0",
+        "method": "namesInfo",
+        "names": []
+    }
+
+    for(let i = 0; i < names.length; i++){
+        msg.names.push(names[i]);
+    }
+
+    console.log("sent nameInfo");
+    console.log(msg);
+    
+    ws.clients.forEach(client => {
+        client.send(JSON.stringify(msg));
+    });
+}
+
+function getAllNames(){
+    let names = [];
+    for(let i = 0; i < person.length; i++){
+        names.push(person[i].name);
+    }
+    return names;
 }
